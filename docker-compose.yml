@@ -1,0 +1,14 @@
+services:
+  tvlift:
+    build: .
+    image: tvlift:latest
+    container_name: tvlift
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8088:8088"
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
